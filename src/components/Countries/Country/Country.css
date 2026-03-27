@@ -2,5 +2,14 @@
 
 .country{
 
-    display: grid; grid-template-columns: repeat(3,1fr);
+    display: grid;   grid-template-columns: repeat(3,1fr);
+}
+.btn{
+
+
+    margin: 20px; 
+}
+.btn1{
+
+     padding:8px;  background-color: rgb(211, 23, 218); color: white; border-radius: 10px;
 }

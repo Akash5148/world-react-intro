@@ -1,6 +1,20 @@
-import React from 'react';
+
+import { useState } from 'react';
 import './Country.css'
+
+
+
 const Country = ({EachCountry}) => {
+
+    const [Visited ,setVisited]=useState(false)
+
+const handleVisited = ()=>{
+
+setVisited(true)
+
+}
+
+
     return (
         <div className='eachcountry' >
 
@@ -18,7 +32,9 @@ const Country = ({EachCountry}) => {
               <p>Continents:{EachCountry.continents.continents}
 
                
-              </p>
+              </p> 
+              <div className="btn">
+              <button className='btn1' onClick={handleVisited}  > {Visited ?'Visited' : 'Not Visited'}</button></div>
         </div>
     );
 };
