@@ -10,13 +10,13 @@ const Country = ({EachCountry}) => {
 
 const handleVisited = ()=>{
 
-setVisited(true)
+setVisited(!Visited )
 
 }
 
 
     return (
-        <div className='eachcountry' >
+        <div className={`eachcountry ${Visited && 'visicss'}`} >
 
             <img src= {EachCountry.flags.flags.png}></img>
             <p>Name: {EachCountry.name.common}</p>
@@ -34,7 +34,7 @@ setVisited(true)
                
               </p> 
               <div className="btn">
-              <button className='btn1' onClick={handleVisited}  > {Visited ?'Visited' : 'Not Visited'}</button></div>
+              <button className='btn1' onClick={handleVisited}  > {Visited ?'Visited' : 'Not Visited '}</button></div>
         </div>
     );
 };
