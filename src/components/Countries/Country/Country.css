@@ -1,0 +1,6 @@
+.eachcountry{ border: purple  solid 2px; margin: 20px; padding: 20px ; border-radius: 29px;}
+
+.country{
+
+    display: grid; grid-template-columns: repeat(3,1fr);
+}
