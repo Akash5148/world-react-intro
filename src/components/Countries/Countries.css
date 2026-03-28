@@ -1,0 +1,13 @@
+.ollist {
+    
+    display: inline-block; 
+    text-align: left;
+    
+  
+    padding-left: 20px; 
+    margin: 0 auto;
+}
+
+.ollist li {
+    margin-bottom: 5px; 
+}

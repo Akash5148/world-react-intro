@@ -1,9 +1,23 @@
-import { use } from "react";
+import { use, useState } from "react";
 import Country from "./Country/Country";
+import './Countries.css'
+const Countries = ({ CountriesPromise }) => {
 
-const Countries = ({CountriesPromise}) => {
-    const CountriesData =use(CountriesPromise) 
-    const AllCountries =CountriesData.countries
+
+    const [VisitedCountry, setVisitedCountry] = useState([]);
+
+    const handleVisitedCountry = (EachCountry) => {
+
+
+        console.log('handleVisitedCountry clicked ', EachCountry);
+
+
+        const newVisitedCountry = [...VisitedCountry, EachCountry]
+
+        setVisitedCountry(newVisitedCountry);
+    }
+    const CountriesData = use(CountriesPromise)
+    const AllCountries = CountriesData.countries
 
     // console.log(AllCountries)
     return (
@@ -11,32 +25,41 @@ const Countries = ({CountriesPromise}) => {
 
         <div style={{ textAlign: 'center' }}>
             <h1>In the world:{AllCountries.length}</h1>
+            <h3>Total Country Visited:{VisitedCountry.length} </h3>
 
-<div className="country">
+            <ol className="ollist">
 
-{
-
-
-    AllCountries.map(EachCountry =>{
-        
+                {VisitedCountry.map(EachCountry => <li>{EachCountry.name.common}</li>)}
 
 
-        
-        
-         console.log(EachCountry)
+            </ol>
+
+            <div className="country">
+
+                {
 
 
-        return(<Country  EachCountry ={EachCountry} key={EachCountry.name.common}></Country>)
-    }
+                    AllCountries.map(EachCountry => {
 
 
 
-    
-)
 
-}
 
-</div>
+                        console.log(EachCountry)
+
+
+                        return (<Country EachCountry={EachCountry} key={EachCountry.name.common}
+                            handleVisitedCountry={handleVisitedCountry}></Country>)
+                    }
+
+
+
+
+                    )
+
+                }
+
+            </div>
 
 
         </div>

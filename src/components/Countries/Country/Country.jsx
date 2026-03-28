@@ -4,14 +4,15 @@ import './Country.css'
 
 
 
-const Country = ({EachCountry}) => {
-
+const Country = ({EachCountry, handleVisitedCountry}) => {
+ console.log('clicked country')
     const [Visited ,setVisited]=useState(false)
 
 const handleVisited = ()=>{
 
 setVisited(!Visited )
 
+handleVisitedCountry(EachCountry)
 }
 
 
